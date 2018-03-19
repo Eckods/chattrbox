@@ -29,7 +29,8 @@ ws.on('connection', function (socket) {
   // Repeats data sent to server
   socket.on('message', function (data) {
     console.log('message received: ' + data);
-
+    messages.push(data);
+    
     // Send new messages to all users on every new message coming in
     ws.clients.forEach(function (clientSocket) {
       // Checks if first string entered is the command: '\topic'
@@ -41,7 +42,6 @@ ws.on('connection', function (socket) {
       }
       else {
         clientSocket.send(data);
-        messages.push(data);
       }
     });
 
