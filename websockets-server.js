@@ -39,8 +39,10 @@ ws.on('connection', function (socket) {
         clientSocket.send('*** Topic has changed to \'' + data.substring(7) + '\'');
         topic = '*** Topic is \'' + data.substring(7) + '\'';
       }
-      clientSocket.send(data);
-      messages.push(data);
+      else {
+        clientSocket.send(data);
+        messages.push(data);
+      }
     });
 
   });
