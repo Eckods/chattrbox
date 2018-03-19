@@ -39,6 +39,7 @@ ws.on('connection', function (socket) {
         // and stores topic for new users
         clientSocket.send('*** Topic has changed to \'' + data.substring(7) + '\'');
         topic = '*** Topic is \'' + data.substring(7) + '\'';
+        messages.pop(); // Removes topic initialization msg for new users
       }
       else {
         clientSocket.send(data);
