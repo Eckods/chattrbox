@@ -34,7 +34,7 @@ ws.on('connection', function (socket) {
     // Send new messages to all users on every new message coming in
     ws.clients.forEach(function (clientSocket) {
       // Checks if first string entered is the command: '\topic'
-      if (data.substring(0, 6) == '\\topic'){
+      if (data.substring(0, 6) == '/topic'){
         // Prints the topic name to connected users
         // and stores topic for new users
         clientSocket.send('*** Topic has changed to \'' + data.substring(7) + '\'');
